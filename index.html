@@ -20,28 +20,26 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <div class="hero-left">
-        <div class="logo-shell">
-          <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
-        </div>
+      <div class="logo-shell">
+        <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
       </div>
 
-      <div class="hero-right">
+      <div class="hero-content">
         <span class="hero-tag">ACESSO RESTRITO</span>
         <h1>CALCULADORA FURIA</h1>
         <p class="subtitle">Painel interno de produção, lavagem e controle de materiais</p>
 
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-label">Status</span>
+            <span>Status</span>
             <strong>Operacional</strong>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-label">Ambiente</span>
+            <span>Ambiente</span>
             <strong>Uso Interno</strong>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-label">Controle</span>
+            <span>Controle</span>
             <strong>FURIA</strong>
           </div>
         </div>
@@ -50,8 +48,9 @@
   </header>
 
   <main class="page">
-    <section class="card">
-      <div class="card-head">
+    <!-- ATTACHS -->
+    <section class="panel">
+      <div class="panel-head">
         <div>
           <p class="section-mini">PRODUÇÃO</p>
           <h2>ATTACHS</h2>
@@ -59,110 +58,148 @@
         <span class="badge">Com e sem parceria</span>
       </div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Qtd</th>
-              <th>Com parceria</th>
-              <th>Sem parceria</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>C4</td>
-              <td><input type="number" id="c4" min="0" value="0" /></td>
-              <td>R$ 1.500</td>
-              <td>R$ 2.500</td>
-            </tr>
-            <tr>
-              <td>Lanterna</td>
-              <td><input type="number" id="lanterna" min="0" value="0" /></td>
-              <td>R$ 300</td>
-              <td>R$ 400</td>
-            </tr>
-            <tr>
-              <td>Pente Estendido</td>
-              <td><input type="number" id="pente" min="0" value="0" /></td>
-              <td>R$ 300</td>
-              <td>R$ 400</td>
-            </tr>
-            <tr>
-              <td>Empunhadura</td>
-              <td><input type="number" id="empunhadura" min="0" value="0" /></td>
-              <td>R$ 300</td>
-              <td>R$ 400</td>
-            </tr>
-            <tr>
-              <td>Silenciador</td>
-              <td><input type="number" id="silenciador" min="0" value="0" /></td>
-              <td>R$ 300</td>
-              <td>R$ 400</td>
-            </tr>
-            <tr>
-              <td>Mira Olográfica</td>
-              <td><input type="number" id="mira" min="0" value="0" /></td>
-              <td>R$ 300</td>
-              <td>R$ 400</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="catalog-grid">
+        <article class="item-card">
+          <div class="item-top">
+            <h3>C4</h3>
+            <span class="item-badge">Explosivo</span>
+          </div>
+          <p class="item-price">R$ 1.500 com parceria • R$ 2.500 sem parceria</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('c4', -1)">−</button>
+            <input type="number" id="c4" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('c4', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Lanterna</h3>
+            <span class="item-badge">Att</span>
+          </div>
+          <p class="item-price">R$ 300 com parceria • R$ 400 sem parceria</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('lanterna', -1)">−</button>
+            <input type="number" id="lanterna" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('lanterna', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Pente Estendido</h3>
+            <span class="item-badge">Att</span>
+          </div>
+          <p class="item-price">R$ 300 com parceria • R$ 400 sem parceria</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('pente', -1)">−</button>
+            <input type="number" id="pente" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('pente', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Empunhadura</h3>
+            <span class="item-badge">Att</span>
+          </div>
+          <p class="item-price">R$ 300 com parceria • R$ 400 sem parceria</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('empunhadura', -1)">−</button>
+            <input type="number" id="empunhadura" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('empunhadura', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Silenciador</h3>
+            <span class="item-badge">Att</span>
+          </div>
+          <p class="item-price">R$ 300 com parceria • R$ 400 sem parceria</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('silenciador', -1)">−</button>
+            <input type="number" id="silenciador" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('silenciador', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Mira Olográfica</h3>
+            <span class="item-badge">Att</span>
+          </div>
+          <p class="item-price">R$ 300 com parceria • R$ 400 sem parceria</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('mira', -1)">−</button>
+            <input type="number" id="mira" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('mira', 1)">+</button>
+          </div>
+        </article>
       </div>
 
-      <button class="action" id="btnAttach">CALCULAR ATTACHS</button>
-
-      <div class="results-grid results-3">
-        <div class="result-box result-highlight">
-          <span class="label">Quantidade de itens</span>
-          <strong id="itensAttach">0</strong>
-        </div>
-
-        <div class="result-box">
-          <span class="label">Valor final com parceria</span>
-          <strong id="valorParceria">R$ 0,00</strong>
-        </div>
-
-        <div class="result-box">
-          <span class="label">Valor final sem parceria</span>
-          <strong id="valorSemParceria">R$ 0,00</strong>
-        </div>
-      </div>
-
-      <div class="subpanel">
-        <div class="subpanel-head">
+      <div class="summary-panel">
+        <div class="summary-head">
           <div>
-            <p class="section-mini">FABRICAÇÃO</p>
-            <h3>Materiais necessários</h3>
+            <p class="section-mini">RESUMO</p>
+            <h3>Cálculo de Attachs</h3>
+          </div>
+          <button class="clear-btn" type="button" onclick="limparAttachs()">Limpar</button>
+        </div>
+
+        <div class="results-grid results-3">
+          <div class="result-box highlight">
+            <span class="label">Quantidade de itens</span>
+            <strong id="itensAttach">0</strong>
+          </div>
+
+          <div class="result-box">
+            <span class="label">Valor final com parceria</span>
+            <strong id="valorParceria">R$ 0,00</strong>
+          </div>
+
+          <div class="result-box">
+            <span class="label">Valor final sem parceria</span>
+            <strong id="valorSemParceria">R$ 0,00</strong>
           </div>
         </div>
 
-        <div class="materials-grid">
-          <div class="material-card">
-            <span>Duct Tape</span>
-            <strong id="materialDuctTape">0</strong>
+        <div class="materials-box">
+          <div class="summary-head small-gap">
+            <div>
+              <p class="section-mini">FABRICAÇÃO</p>
+              <h3>Materiais necessários</h3>
+            </div>
           </div>
 
-          <div class="material-card">
-            <span>Plástico</span>
-            <strong id="materialPlastico">0</strong>
-          </div>
+          <div class="materials-grid">
+            <div class="material-card">
+              <span>Duct Tape</span>
+              <strong id="materialDuctTape">0</strong>
+            </div>
 
-          <div class="material-card">
-            <span>Tecido</span>
-            <strong id="materialTecido">0</strong>
-          </div>
+            <div class="material-card">
+              <span>Plástico</span>
+              <strong id="materialPlastico">0</strong>
+            </div>
 
-          <div class="material-card">
-            <span>Cobre</span>
-            <strong id="materialCobre">0</strong>
+            <div class="material-card">
+              <span>Tecido</span>
+              <strong id="materialTecido">0</strong>
+            </div>
+
+            <div class="material-card">
+              <span>Cobre</span>
+              <strong id="materialCobre">0</strong>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="card">
-      <div class="card-head">
+    <!-- LAVAGEM -->
+    <section class="panel">
+      <div class="panel-head">
         <div>
           <p class="section-mini">FINANCEIRO</p>
           <h2>LAVAGEM DE ITENS DE CASA</h2>
@@ -170,76 +207,128 @@
         <span class="badge">15% para a fac</span>
       </div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Qtd</th>
-              <th>Valor unitário</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Bracelete</td>
-              <td><input type="number" id="bracelete" min="0" value="0" /></td>
-              <td>R$ 600</td>
-            </tr>
-            <tr>
-              <td>Xbox</td>
-              <td><input type="number" id="xbox" min="0" value="0" /></td>
-              <td>R$ 600</td>
-            </tr>
-            <tr>
-              <td>Notbook</td>
-              <td><input type="number" id="notbook" min="0" value="0" /></td>
-              <td>R$ 500</td>
-            </tr>
-            <tr>
-              <td>Mouse</td>
-              <td><input type="number" id="mouse" min="0" value="0" /></td>
-              <td>R$ 200</td>
-            </tr>
-            <tr>
-              <td>Vibrador</td>
-              <td><input type="number" id="vibrador" min="0" value="0" /></td>
-              <td>R$ 200</td>
-            </tr>
-            <tr>
-              <td>Relógio</td>
-              <td><input type="number" id="relogio" min="0" value="0" /></td>
-              <td>R$ 500</td>
-            </tr>
-            <tr>
-              <td>Anel</td>
-              <td><input type="number" id="anel" min="0" value="0" /></td>
-              <td>R$ 1.000</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="catalog-grid">
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Bracelete</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 600 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('bracelete', -1)">−</button>
+            <input type="number" id="bracelete" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('bracelete', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Xbox</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 600 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('xbox', -1)">−</button>
+            <input type="number" id="xbox" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('xbox', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Notbook</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 500 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('notbook', -1)">−</button>
+            <input type="number" id="notbook" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('notbook', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Mouse</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 200 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('mouse', -1)">−</button>
+            <input type="number" id="mouse" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('mouse', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Vibrador</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 200 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('vibrador', -1)">−</button>
+            <input type="number" id="vibrador" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('vibrador', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Relógio</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 500 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('relogio', -1)">−</button>
+            <input type="number" id="relogio" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('relogio', 1)">+</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="item-top">
+            <h3>Anel</h3>
+            <span class="item-badge">Casa</span>
+          </div>
+          <p class="item-price">R$ 1.000 por unidade</p>
+          <div class="qty-control">
+            <button type="button" onclick="alterarQuantidade('anel', -1)">−</button>
+            <input type="number" id="anel" min="0" value="0" />
+            <button type="button" onclick="alterarQuantidade('anel', 1)">+</button>
+          </div>
+        </article>
       </div>
 
-      <button class="action" id="btnLavagem">CALCULAR LAVAGEM</button>
-
-      <div class="results-grid results-4">
-        <div class="result-box result-highlight">
-          <span class="label">Quantidade de itens</span>
-          <strong id="itensLavagem">0</strong>
+      <div class="summary-panel">
+        <div class="summary-head">
+          <div>
+            <p class="section-mini">RESUMO</p>
+            <h3>Cálculo de Lavagem</h3>
+          </div>
+          <button class="clear-btn" type="button" onclick="limparLavagem()">Limpar</button>
         </div>
 
-        <div class="result-box">
-          <span class="label">Valor total</span>
-          <strong id="totalLavagem">R$ 0,00</strong>
-        </div>
+        <div class="results-grid results-4">
+          <div class="result-box highlight">
+            <span class="label">Quantidade de itens</span>
+            <strong id="itensLavagem">0</strong>
+          </div>
 
-        <div class="result-box">
-          <span class="label">Repassado para a pessoa (85%)</span>
-          <strong id="valorPessoa">R$ 0,00</strong>
-        </div>
+          <div class="result-box">
+            <span class="label">Valor total</span>
+            <strong id="totalLavagem">R$ 0,00</strong>
+          </div>
 
-        <div class="result-box">
-          <span class="label">Fica com a fac (15%)</span>
-          <strong id="valorFac">R$ 0,00</strong>
+          <div class="result-box">
+            <span class="label">Repassado para a pessoa (85%)</span>
+            <strong id="valorPessoa">R$ 0,00</strong>
+          </div>
+
+          <div class="result-box">
+            <span class="label">Fica com a fac (15%)</span>
+            <strong id="valorFac">R$ 0,00</strong>
+          </div>
         </div>
       </div>
     </section>
