@@ -113,8 +113,35 @@ function recalcularTudo() {
   calcularLavagem();
 }
 
+/* ANIMAÇÃO DE ABERTURA */
+function iniciarIntro() {
+  const texto = "ACESSO RESTRITO";
+  const typedText = document.getElementById("typedText");
+  const intro = document.getElementById("intro");
+  const app = document.getElementById("app");
+
+  let indice = 0;
+
+  function digitar() {
+    if (indice < texto.length) {
+      typedText.textContent += texto.charAt(indice);
+      indice += 1;
+      setTimeout(digitar, 95);
+    } else {
+      setTimeout(() => {
+        intro.classList.add("hide");
+        app.classList.remove("app-hidden");
+        app.classList.add("app-visible");
+      }, 900);
+    }
+  }
+
+  setTimeout(digitar, 500);
+}
+
 document.querySelectorAll('input[type="number"]').forEach((input) => {
   input.addEventListener("input", recalcularTudo);
 });
 
 recalcularTudo();
+window.addEventListener("load", iniciarIntro);
