@@ -1,78 +1,101 @@
-function dinheiro(valor){
-
-return valor.toLocaleString('pt-BR',{
-
-style:'currency',
-currency:'BRL'
-
-})
-
+function obterNumero(id) {
+  const valor = Number(document.getElementById(id).value);
+  return Number.isNaN(valor) || valor < 0 ? 0 : valor;
 }
 
-
-
-function calcularAttach(){
-
-let c4 = Number(document.getElementById("c4").value)
-let lanterna = Number(document.getElementById("lanterna").value)
-let pente = Number(document.getElementById("pente").value)
-let emp = Number(document.getElementById("empunhadura").value)
-let sil = Number(document.getElementById("silenciador").value)
-let mira = Number(document.getElementById("mira").value)
-
-let itens = c4+lanterna+pente+emp+sil+mira
-
-let parceria =
-(c4*1500)+
-(lanterna*300)+
-(pente*300)+
-(emp*300)+
-(sil*300)+
-(mira*300)
-
-let normal =
-(c4*2500)+
-(lanterna*400)+
-(pente*400)+
-(emp*400)+
-(sil*400)+
-(mira*400)
-
-document.getElementById("itensAttach").innerText = itens
-document.getElementById("valorParceria").innerText = dinheiro(parceria)
-document.getElementById("valorNormal").innerText = dinheiro(normal)
-
+function formatarDinheiro(valor) {
+  return valor.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
 }
 
+function calcularAttachs() {
+  const c4 = obterNumero("c4");
+  const lanterna = obterNumero("lanterna");
+  const pente = obterNumero("pente");
+  const empunhadura = obterNumero("empunhadura");
+  const silenciador = obterNumero("silenciador");
+  const mira = obterNumero("mira");
 
+  const totalAttsSemC4 = lanterna + pente + empunhadura + silenciador + mira;
+  const quantidadeTotalItens = c4 + totalAttsSemC4;
 
-function calcularLavagem(){
+  const valorComParceria =
+    (c4 * 1500) +
+    (lanterna * 300) +
+    (pente * 300) +
+    (empunhadura * 300) +
+    (silenciador * 300) +
+    (mira * 300);
 
-let brace = Number(document.getElementById("bracelete").value)
-let xbox = Number(document.getElementById("xbox").value)
-let note = Number(document.getElementById("notebook").value)
-let mouse = Number(document.getElementById("mouse").value)
-let vib = Number(document.getElementById("vibrador").value)
-let rel = Number(document.getElementById("relogio").value)
-let anel = Number(document.getElementById("anel").value)
+  const valorSemParceria =
+    (c4 * 2500) +
+    (lanterna * 400) +
+    (pente * 400) +
+    (empunhadura * 400) +
+    (silenciador * 400) +
+    (mira * 400);
 
-let itens = brace+xbox+note+mouse+vib+rel+anel
+  // Materiais
+  // C4 = 4 de cada componente
+  // Cada att = duct tape 5 + plástico 5
+  const ductTape = (c4 * 4) + (totalAttsSemC4 * 5);
+  const tecido = c4 * 4;
+  const cobre = c4 * 4;
+  const plastico = (c4 * 4) + (totalAttsSemC4 * 5);
 
-let total =
-(brace*600)+
-(xbox*600)+
-(note*500)+
-(mouse*200)+
-(vib*200)+
-(rel*500)+
-(anel*1000)
+  document.getElementById("itensAttach").textContent = quantidadeTotalItens;
+  document.getElementById("valorParceria").textContent = formatarDinheiro(valorComParceria);
+  document.getElementById("valorSemParceria").textContent = formatarDinheiro(valorSemParceria);
 
-let fac = total*0.15
-let pessoa = total*0.85
-
-document.getElementById("itensLavagem").innerText = itens
-document.getElementById("totalLavagem").innerText = dinheiro(total)
-document.getElementById("valorFac").innerText = dinheiro(fac)
-document.getElementById("valorPessoa").innerText = dinheiro(pessoa)
-
+  document.getElementById("materialDuctTape").textContent = ductTape;
+  document.getElementById("materialTecido").textContent = tecido;
+  document.getElementById("materialCobre").textContent = cobre;
+  document.getElementById("materialPlastico").textContent = plastico;
 }
+
+function calcularLavagem() {
+  const bracelete = obterNumero("bracelete");
+  const xbox = obterNumero("xbox");
+  const notbook = obterNumero("notbook");
+  const mouse = obterNumero("mouse");
+  const vibrador = obterNumero("vibrador");
+  const relogio = obterNumero("relogio");
+  const anel = obterNumero("anel");
+
+  const quantidadeItens =
+    bracelete + xbox + notbook + mouse + vibrador + relogio + anel;
+
+  const total =
+    (bracelete * 600) +
+    (xbox * 600) +
+    (notbook * 500) +
+    (mouse * 200) +
+    (vibrador * 200) +
+    (relogio * 500) +
+    (anel * 1000);
+
+  const valorFac = total * 0.15;
+  const valorPessoa = total * 0.85;
+
+  document.getElementById("itensLavagem").textContent = quantidadeItens;
+  document.getElementById("totalLavagem").textContent = formatarDinheiro(total);
+  document.getElementById("valorPessoa").textContent = formatarDinheiro(valorPessoa);
+  document.getElementById("valorFac").textContent = formatarDinheiro(valorFac);
+}
+
+function recalcularTudo() {
+  calcularAttachs();
+  calcularLavagem();
+}
+
+document.getElementById("btnAttach").addEventListener("click", calcularAttachs);
+document.getElementById("btnLavagem").addEventListener("click", calcularLavagem);
+
+document.querySelectorAll('input[type="number"]').forEach((input) => {
+  input.addEventListener("input", recalcularTudo);
+});
+
+// cálculo inicial
+recalcularTudo();
