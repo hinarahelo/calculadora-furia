@@ -10,16 +10,23 @@
   <div class="lightning"></div>
 
   <header class="hero">
-    <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
-    <h1>CALCULADORA FURIA</h1>
-    <p class="subtitle">Attachs, lavagem e materiais de fabricação</p>
+    <div class="hero-inner">
+      <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
+      <div class="hero-text">
+        <span class="hero-tag">PAINEL DE OPERAÇÕES</span>
+        <h1>CALCULADORA FURIA</h1>
+        <p class="subtitle">Attachs, lavagem e materiais de fabricação</p>
+      </div>
+    </div>
   </header>
 
   <main class="page">
-    <!-- ATTACHS -->
     <section class="card">
       <div class="card-title">
-        <h2>ATTACHS</h2>
+        <div>
+          <p class="section-mini">PRODUÇÃO</p>
+          <h2>ATTACHS</h2>
+        </div>
         <span class="badge">Com e sem parceria</span>
       </div>
 
@@ -76,7 +83,7 @@
 
       <button class="action" id="btnAttach">CALCULAR ATTACHS</button>
 
-      <div class="results-grid">
+      <div class="results-grid attach-results">
         <div class="result-box">
           <span class="label">Quantidade de itens</span>
           <strong id="itensAttach">0</strong>
@@ -94,7 +101,12 @@
       </div>
 
       <div class="materials-box">
-        <h3>Materiais necessários para fabricação</h3>
+        <div class="materials-head">
+          <div>
+            <p class="section-mini">FABRICAÇÃO</p>
+            <h3>Materiais necessários</h3>
+          </div>
+        </div>
 
         <div class="materials-grid">
           <div class="material-item">
@@ -120,10 +132,12 @@
       </div>
     </section>
 
-    <!-- LAVAGEM -->
     <section class="card">
       <div class="card-title">
-        <h2>LAVAGEM DE ITENS DE CASA</h2>
+        <div>
+          <p class="section-mini">FINANCEIRO</p>
+          <h2>LAVAGEM DE ITENS DE CASA</h2>
+        </div>
         <span class="badge">15% para a fac</span>
       </div>
 
@@ -178,7 +192,7 @@
 
       <button class="action" id="btnLavagem">CALCULAR LAVAGEM</button>
 
-      <div class="results-grid">
+      <div class="results-grid lavagem-results">
         <div class="result-box">
           <span class="label">Quantidade de itens</span>
           <strong id="itensLavagem">0</strong>
