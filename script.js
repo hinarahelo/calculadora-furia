@@ -37,22 +37,19 @@ function calcularAttachs() {
     (silenciador * 400) +
     (mira * 400);
 
-  // Materiais
-  // C4 = 4 de cada componente
-  // Cada att = duct tape 5 + plástico 5
   const ductTape = (c4 * 4) + (totalAttsSemC4 * 5);
+  const plastico = (c4 * 4) + (totalAttsSemC4 * 5);
   const tecido = c4 * 4;
   const cobre = c4 * 4;
-  const plastico = (c4 * 4) + (totalAttsSemC4 * 5);
 
   document.getElementById("itensAttach").textContent = quantidadeTotalItens;
   document.getElementById("valorParceria").textContent = formatarDinheiro(valorComParceria);
   document.getElementById("valorSemParceria").textContent = formatarDinheiro(valorSemParceria);
 
   document.getElementById("materialDuctTape").textContent = ductTape;
+  document.getElementById("materialPlastico").textContent = plastico;
   document.getElementById("materialTecido").textContent = tecido;
   document.getElementById("materialCobre").textContent = cobre;
-  document.getElementById("materialPlastico").textContent = plastico;
 }
 
 function calcularLavagem() {
@@ -97,5 +94,4 @@ document.querySelectorAll('input[type="number"]').forEach((input) => {
   input.addEventListener("input", recalcularTudo);
 });
 
-// cálculo inicial
 recalcularTudo();
