@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora FURIA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,16 +19,35 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
+      <div class="hero-logo-wrap">
+        <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
+      </div>
+
       <div class="hero-text">
-        <span class="hero-tag">PAINEL DE OPERAÇÕES</span>
+        <span class="hero-tag">ACESSO RESTRITO</span>
         <h1>CALCULADORA FURIA</h1>
-        <p class="subtitle">Attachs, lavagem e materiais de fabricação</p>
+        <p class="subtitle">Painel interno de produção, lavagem e materiais</p>
+
+        <div class="hero-info">
+          <div class="hero-info-card">
+            <span class="hero-info-label">Status</span>
+            <strong>Operacional</strong>
+          </div>
+          <div class="hero-info-card">
+            <span class="hero-info-label">Painel</span>
+            <strong>Uso Interno</strong>
+          </div>
+          <div class="hero-info-card">
+            <span class="hero-info-label">Controle</span>
+            <strong>FURIA</strong>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="page">
+    <!-- ATTACHS -->
     <section class="card">
       <div class="card-title">
         <div>
@@ -84,7 +111,7 @@
       <button class="action" id="btnAttach">CALCULAR ATTACHS</button>
 
       <div class="results-grid attach-results">
-        <div class="result-box">
+        <div class="result-box emphasis">
           <span class="label">Quantidade de itens</span>
           <strong id="itensAttach">0</strong>
         </div>
@@ -132,6 +159,7 @@
       </div>
     </section>
 
+    <!-- LAVAGEM -->
     <section class="card">
       <div class="card-title">
         <div>
@@ -193,7 +221,7 @@
       <button class="action" id="btnLavagem">CALCULAR LAVAGEM</button>
 
       <div class="results-grid lavagem-results">
-        <div class="result-box">
+        <div class="result-box emphasis">
           <span class="label">Quantidade de itens</span>
           <strong id="itensLavagem">0</strong>
         </div>
