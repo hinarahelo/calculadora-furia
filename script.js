@@ -113,7 +113,6 @@ function recalcularTudo() {
   calcularLavagem();
 }
 
-/* INTRO CINEMATOGRÁFICA */
 function iniciarIntro() {
   const texto = "ACESSO RESTRITO";
   const typedText = document.getElementById("typedText");
@@ -136,7 +135,7 @@ function iniciarIntro() {
     }
   }
 
-  setTimeout(digitar, 700);
+  setTimeout(digitar, 650);
 }
 
 document.querySelectorAll('input[type="number"]').forEach((input) => {
