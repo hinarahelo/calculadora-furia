@@ -1,0 +1,65 @@
+body{
+background:#050505;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.logo img{
+width:420px;
+margin-top:30px;
+}
+
+h1{
+margin:20px;
+font-size:32px;
+letter-spacing:3px;
+}
+
+.container{
+background:#111;
+width:600px;
+margin:40px auto;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 30px rgba(255,255,255,0.05);
+}
+
+table{
+width:100%;
+margin-bottom:20px;
+}
+
+td,th{
+padding:10px;
+}
+
+input{
+width:70px;
+padding:6px;
+text-align:center;
+background:#000;
+border:1px solid #333;
+color:white;
+}
+
+button{
+
+padding:12px 25px;
+border:none;
+background:white;
+color:black;
+font-weight:bold;
+cursor:pointer;
+border-radius:5px;
+
+}
+
+button:hover{
+background:#ccc;
+}
+
+.resultado{
+margin-top:20px;
+font-size:18px;
+}
