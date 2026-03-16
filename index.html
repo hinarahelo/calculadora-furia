@@ -1,146 +1,366 @@
-function obterNumero(id) {
-  const el = document.getElementById(id);
-  const valor = Number(el.value);
-  return Number.isNaN(valor) || valor < 0 ? 0 : valor;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora FURIA</title>
+  <link rel="icon" type="image/png" href="logo-furia.png" />
 
-function setNumero(id, valor) {
-  const el = document.getElementById(id);
-  el.value = Math.max(0, valor);
-  recalcularTudo();
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
 
-function alterarQuantidade(id, delta) {
-  const atual = obterNumero(id);
-  setNumero(id, atual + delta);
-}
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- INTRO -->
+  <div id="intro" class="intro-screen">
+    <div class="intro-bg"></div>
+    <div class="intro-vignette"></div>
+    <div class="intro-flash"></div>
 
-function formatarDinheiro(valor) {
-  return valor.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL"
-  });
-}
+    <div class="intro-content">
+      <img src="logo-furia.png" alt="Logo FURIA" class="intro-logo" />
 
-function calcularAttachs() {
-  const c4 = obterNumero("c4");
-  const lanterna = obterNumero("lanterna");
-  const pente = obterNumero("pente");
-  const empunhadura = obterNumero("empunhadura");
-  const silenciador = obterNumero("silenciador");
-  const mira = obterNumero("mira");
+      <div class="intro-text-block intro-text-block--vertical">
+        <p id="typedText" class="intro-text"></p>
+        <span class="intro-cursor"></span>
+      </div>
 
-  const totalAttsSemC4 = lanterna + pente + empunhadura + silenciador + mira;
-  const quantidadeTotalItens = c4 + totalAttsSemC4;
+      <p class="intro-subline">PAINEL INTERNO AUTORIZADO</p>
+    </div>
+  </div>
 
-  const valorComParceria =
-    (c4 * 1500) +
-    (lanterna * 300) +
-    (pente * 300) +
-    (empunhadura * 300) +
-    (silenciador * 300) +
-    (mira * 300);
+  <!-- APP -->
+  <div id="app" class="app-hidden">
+    <div class="bg-layer"></div>
+    <div class="lightning"></div>
 
-  const valorSemParceria =
-    (c4 * 2500) +
-    (lanterna * 400) +
-    (pente * 400) +
-    (empunhadura * 400) +
-    (silenciador * 400) +
-    (mira * 400);
+    <header class="hero">
+      <div class="hero-inner">
+        <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
 
-  const ductTape = (c4 * 4) + (totalAttsSemC4 * 5);
-  const plastico = (c4 * 4) + (totalAttsSemC4 * 5);
-  const tecido = c4 * 4;
-  const cobre = c4 * 4;
+        <div class="hero-copy">
+          <span class="hero-tag">ACESSO RESTRITO</span>
+          <h1>CALCULADORA FURIA</h1>
+          <p class="subtitle">Painel interno de produção, lavagem e controle de materiais</p>
+        </div>
+      </div>
+    </header>
 
-  document.getElementById("itensAttach").textContent = quantidadeTotalItens;
-  document.getElementById("valorParceria").textContent = formatarDinheiro(valorComParceria);
-  document.getElementById("valorSemParceria").textContent = formatarDinheiro(valorSemParceria);
+    <main class="page">
+      <!-- ATTACHS -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-mini">PRODUÇÃO</p>
+            <h2>ATTACHS</h2>
+          </div>
+          <span class="badge">Com e sem parceria</span>
+        </div>
 
-  document.getElementById("materialDuctTape").textContent = ductTape;
-  document.getElementById("materialPlastico").textContent = plastico;
-  document.getElementById("materialTecido").textContent = tecido;
-  document.getElementById("materialCobre").textContent = cobre;
-}
+        <div class="panel-layout">
+          <div class="catalog-grid">
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>C4</h3>
+                  <p>R$ 1.500 com parceria • R$ 2.500 sem parceria</p>
+                </div>
+                <span class="item-type">Explosivo</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('c4', -1)">−</button>
+                <input type="number" id="c4" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('c4', 1)">+</button>
+              </div>
+            </article>
 
-function calcularLavagem() {
-  const bracelete = obterNumero("bracelete");
-  const xbox = obterNumero("xbox");
-  const notbook = obterNumero("notbook");
-  const mouse = obterNumero("mouse");
-  const vibrador = obterNumero("vibrador");
-  const relogio = obterNumero("relogio");
-  const anel = obterNumero("anel");
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Lanterna</h3>
+                  <p>R$ 300 com parceria • R$ 400 sem parceria</p>
+                </div>
+                <span class="item-type">Att</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('lanterna', -1)">−</button>
+                <input type="number" id="lanterna" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('lanterna', 1)">+</button>
+              </div>
+            </article>
 
-  const quantidadeItens =
-    bracelete + xbox + notbook + mouse + vibrador + relogio + anel;
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Pente Estendido</h3>
+                  <p>R$ 300 com parceria • R$ 400 sem parceria</p>
+                </div>
+                <span class="item-type">Att</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('pente', -1)">−</button>
+                <input type="number" id="pente" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('pente', 1)">+</button>
+              </div>
+            </article>
 
-  const total =
-    (bracelete * 600) +
-    (xbox * 600) +
-    (notbook * 500) +
-    (mouse * 200) +
-    (vibrador * 200) +
-    (relogio * 500) +
-    (anel * 1000);
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Empunhadura</h3>
+                  <p>R$ 300 com parceria • R$ 400 sem parceria</p>
+                </div>
+                <span class="item-type">Att</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('empunhadura', -1)">−</button>
+                <input type="number" id="empunhadura" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('empunhadura', 1)">+</button>
+              </div>
+            </article>
 
-  const valorFac = total * 0.15;
-  const valorPessoa = total * 0.85;
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Silenciador</h3>
+                  <p>R$ 300 com parceria • R$ 400 sem parceria</p>
+                </div>
+                <span class="item-type">Att</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('silenciador', -1)">−</button>
+                <input type="number" id="silenciador" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('silenciador', 1)">+</button>
+              </div>
+            </article>
 
-  document.getElementById("itensLavagem").textContent = quantidadeItens;
-  document.getElementById("totalLavagem").textContent = formatarDinheiro(total);
-  document.getElementById("valorPessoa").textContent = formatarDinheiro(valorPessoa);
-  document.getElementById("valorFac").textContent = formatarDinheiro(valorFac);
-}
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Mira Olográfica</h3>
+                  <p>R$ 300 com parceria • R$ 400 sem parceria</p>
+                </div>
+                <span class="item-type">Att</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('mira', -1)">−</button>
+                <input type="number" id="mira" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('mira', 1)">+</button>
+              </div>
+            </article>
+          </div>
 
-function limparAttachs() {
-  ["c4", "lanterna", "pente", "empunhadura", "silenciador", "mira"].forEach((id) => {
-    document.getElementById(id).value = 0;
-  });
-  recalcularTudo();
-}
+          <aside class="summary-panel summary-sticky">
+            <div class="summary-head">
+              <div>
+                <p class="section-mini">RESUMO</p>
+                <h3>Cálculo de Attachs</h3>
+              </div>
+              <button class="clear-btn" type="button" onclick="limparAttachs()">Limpar</button>
+            </div>
 
-function limparLavagem() {
-  ["bracelete", "xbox", "notbook", "mouse", "vibrador", "relogio", "anel"].forEach((id) => {
-    document.getElementById(id).value = 0;
-  });
-  recalcularTudo();
-}
+            <div class="summary-list">
+              <div class="summary-row summary-row-strong">
+                <span>Quantidade de itens</span>
+                <strong id="itensAttach">0</strong>
+              </div>
+              <div class="summary-row">
+                <span>Valor com parceria</span>
+                <strong id="valorParceria">R$ 0,00</strong>
+              </div>
+              <div class="summary-row">
+                <span>Valor sem parceria</span>
+                <strong id="valorSemParceria">R$ 0,00</strong>
+              </div>
+            </div>
 
-function recalcularTudo() {
-  calcularAttachs();
-  calcularLavagem();
-}
+            <div class="materials-box">
+              <div class="summary-head small-gap no-button">
+                <div>
+                  <p class="section-mini">FABRICAÇÃO</p>
+                  <h3>Materiais necessários</h3>
+                </div>
+              </div>
 
-function iniciarIntro() {
-  const texto = "ACESSO RESTRITO";
-  const typedText = document.getElementById("typedText");
-  const intro = document.getElementById("intro");
-  const app = document.getElementById("app");
+              <div class="materials-list">
+                <div class="material-row">
+                  <span>Duct Tape</span>
+                  <strong id="materialDuctTape">0</strong>
+                </div>
+                <div class="material-row">
+                  <span>Plástico</span>
+                  <strong id="materialPlastico">0</strong>
+                </div>
+                <div class="material-row">
+                  <span>Tecido</span>
+                  <strong id="materialTecido">0</strong>
+                </div>
+                <div class="material-row">
+                  <span>Cobre</span>
+                  <strong id="materialCobre">0</strong>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-  let indice = 0;
+      <!-- LAVAGEM -->
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-mini">FINANCEIRO</p>
+            <h2>LAVAGEM DE ITENS DE CASA</h2>
+          </div>
+          <span class="badge">15% para a fac</span>
+        </div>
 
-  function digitar() {
-    if (indice < texto.length) {
-      typedText.textContent += texto.charAt(indice);
-      indice += 1;
-      setTimeout(digitar, 105);
-    } else {
-      setTimeout(() => {
-        intro.classList.add("hide");
-        app.classList.remove("app-hidden");
-        app.classList.add("app-visible");
-      }, 1300);
-    }
-  }
+        <div class="panel-layout">
+          <div class="catalog-grid">
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Bracelete</h3>
+                  <p>R$ 600 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('bracelete', -1)">−</button>
+                <input type="number" id="bracelete" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('bracelete', 1)">+</button>
+              </div>
+            </article>
 
-  setTimeout(digitar, 650);
-}
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Xbox</h3>
+                  <p>R$ 600 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('xbox', -1)">−</button>
+                <input type="number" id="xbox" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('xbox', 1)">+</button>
+              </div>
+            </article>
 
-document.querySelectorAll('input[type="number"]').forEach((input) => {
-  input.addEventListener("input", recalcularTudo);
-});
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Notbook</h3>
+                  <p>R$ 500 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('notbook', -1)">−</button>
+                <input type="number" id="notbook" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('notbook', 1)">+</button>
+              </div>
+            </article>
 
-recalcularTudo();
-window.addEventListener("load", iniciarIntro);
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Mouse</h3>
+                  <p>R$ 200 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('mouse', -1)">−</button>
+                <input type="number" id="mouse" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('mouse', 1)">+</button>
+              </div>
+            </article>
+
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Vibrador</h3>
+                  <p>R$ 200 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('vibrador', -1)">−</button>
+                <input type="number" id="vibrador" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('vibrador', 1)">+</button>
+              </div>
+            </article>
+
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Relógio</h3>
+                  <p>R$ 500 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('relogio', -1)">−</button>
+                <input type="number" id="relogio" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('relogio', 1)">+</button>
+              </div>
+            </article>
+
+            <article class="item-line">
+              <div class="item-line-main">
+                <div>
+                  <h3>Anel</h3>
+                  <p>R$ 1.000 por unidade</p>
+                </div>
+                <span class="item-type">Casa</span>
+              </div>
+              <div class="qty-control">
+                <button type="button" onclick="alterarQuantidade('anel', -1)">−</button>
+                <input type="number" id="anel" min="0" value="0" />
+                <button type="button" onclick="alterarQuantidade('anel', 1)">+</button>
+              </div>
+            </article>
+          </div>
+
+          <aside class="summary-panel summary-sticky">
+            <div class="summary-head">
+              <div>
+                <p class="section-mini">RESUMO</p>
+                <h3>Cálculo de Lavagem</h3>
+              </div>
+              <button class="clear-btn" type="button" onclick="limparLavagem()">Limpar</button>
+            </div>
+
+            <div class="summary-list">
+              <div class="summary-row summary-row-strong">
+                <span>Quantidade de itens</span>
+                <strong id="itensLavagem">0</strong>
+              </div>
+              <div class="summary-row">
+                <span>Valor total</span>
+                <strong id="totalLavagem">R$ 0,00</strong>
+              </div>
+              <div class="summary-row">
+                <span>Repassado para a pessoa (85%)</span>
+                <strong id="valorPessoa">R$ 0,00</strong>
+              </div>
+              <div class="summary-row">
+                <span>Fica com a fac (15%)</span>
+                <strong id="valorFac">R$ 0,00</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
