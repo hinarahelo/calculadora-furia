@@ -1,6 +1,18 @@
 function obterNumero(id) {
-  const valor = Number(document.getElementById(id).value);
+  const el = document.getElementById(id);
+  const valor = Number(el.value);
   return Number.isNaN(valor) || valor < 0 ? 0 : valor;
+}
+
+function setNumero(id, valor) {
+  const el = document.getElementById(id);
+  el.value = Math.max(0, valor);
+  recalcularTudo();
+}
+
+function alterarQuantidade(id, delta) {
+  const atual = obterNumero(id);
+  setNumero(id, atual + delta);
 }
 
 function formatarDinheiro(valor) {
@@ -82,13 +94,24 @@ function calcularLavagem() {
   document.getElementById("valorFac").textContent = formatarDinheiro(valorFac);
 }
 
+function limparAttachs() {
+  ["c4", "lanterna", "pente", "empunhadura", "silenciador", "mira"].forEach((id) => {
+    document.getElementById(id).value = 0;
+  });
+  recalcularTudo();
+}
+
+function limparLavagem() {
+  ["bracelete", "xbox", "notbook", "mouse", "vibrador", "relogio", "anel"].forEach((id) => {
+    document.getElementById(id).value = 0;
+  });
+  recalcularTudo();
+}
+
 function recalcularTudo() {
   calcularAttachs();
   calcularLavagem();
 }
-
-document.getElementById("btnAttach").addEventListener("click", calcularAttachs);
-document.getElementById("btnLavagem").addEventListener("click", calcularLavagem);
 
 document.querySelectorAll('input[type="number"]').forEach((input) => {
   input.addEventListener("input", recalcularTudo);
