@@ -3,7 +3,6 @@
   --bg-2: #080808;
   --panel: rgba(12, 12, 12, 0.88);
   --panel-soft: rgba(255, 255, 255, 0.03);
-  --panel-strong: rgba(17, 17, 17, 0.96);
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
   --text: #ffffff;
@@ -229,7 +228,8 @@ h1 {
 
 .panel-head,
 .summary-panel,
-.catalog-grid {
+.catalog-grid,
+.panel-layout {
   position: relative;
   z-index: 1;
 }
@@ -274,9 +274,16 @@ h1 {
   font-weight: 600;
 }
 
+.panel-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 18px;
+  align-items: start;
+}
+
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -360,11 +367,15 @@ h1 {
 }
 
 .summary-panel {
-  margin-top: 18px;
   padding: 18px;
   border-radius: 22px;
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.025);
+}
+
+.summary-sticky {
+  position: sticky;
+  top: 18px;
 }
 
 .summary-head {
@@ -377,6 +388,10 @@ h1 {
 
 .summary-head.small-gap {
   margin-bottom: 12px;
+}
+
+.summary-head.no-button {
+  justify-content: flex-start;
 }
 
 .clear-btn {
@@ -402,16 +417,12 @@ h1 {
   gap: 12px;
 }
 
-.results-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.results-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.results-vertical {
+  grid-template-columns: 1fr;
 }
 
 .result-box {
-  min-height: 104px;
+  min-height: 96px;
   padding: 16px;
   border-radius: 18px;
   border: 1px solid var(--line);
@@ -449,8 +460,11 @@ h1 {
 
 .materials-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
+}
+
+.materials-2 {
+  grid-template-columns: 1fr 1fr;
 }
 
 .material-card {
@@ -483,24 +497,23 @@ h1 {
     text-align: center;
   }
 
-  .catalog-grid {
+  .hero-stats {
     grid-template-columns: 1fr 1fr;
   }
 
-  .results-3,
-  .results-4,
-  .materials-grid,
-  .hero-stats {
-    grid-template-columns: 1fr 1fr;
+  .panel-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-sticky {
+    position: static;
   }
 }
 
 @media (max-width: 700px) {
   .hero-stats,
   .catalog-grid,
-  .results-3,
-  .results-4,
-  .materials-grid {
+  .materials-2 {
     grid-template-columns: 1fr;
   }
 
