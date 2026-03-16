@@ -1,119 +1,204 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Calculadora FURIA</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora FURIA</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="lightning"></div>
 
-<div class="lightning"></div>
+  <header class="hero">
+    <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
+    <h1>CALCULADORA FURIA</h1>
+    <p class="subtitle">Attachs, lavagem e materiais de fabricação</p>
+  </header>
 
-<header>
+  <main class="page">
+    <!-- ATTACHS -->
+    <section class="card">
+      <div class="card-title">
+        <h2>ATTACHS</h2>
+        <span class="badge">Com e sem parceria</span>
+      </div>
 
-<img src="logo-furia.png" class="logo">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qtd</th>
+              <th>Com parceria</th>
+              <th>Sem parceria</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>C4</td>
+              <td><input type="number" id="c4" min="0" value="0" /></td>
+              <td>R$ 1.500</td>
+              <td>R$ 2.500</td>
+            </tr>
+            <tr>
+              <td>Lanterna</td>
+              <td><input type="number" id="lanterna" min="0" value="0" /></td>
+              <td>R$ 300</td>
+              <td>R$ 400</td>
+            </tr>
+            <tr>
+              <td>Pente Estendido</td>
+              <td><input type="number" id="pente" min="0" value="0" /></td>
+              <td>R$ 300</td>
+              <td>R$ 400</td>
+            </tr>
+            <tr>
+              <td>Empunhadura</td>
+              <td><input type="number" id="empunhadura" min="0" value="0" /></td>
+              <td>R$ 300</td>
+              <td>R$ 400</td>
+            </tr>
+            <tr>
+              <td>Silenciador</td>
+              <td><input type="number" id="silenciador" min="0" value="0" /></td>
+              <td>R$ 300</td>
+              <td>R$ 400</td>
+            </tr>
+            <tr>
+              <td>Mira Olográfica</td>
+              <td><input type="number" id="mira" min="0" value="0" /></td>
+              <td>R$ 300</td>
+              <td>R$ 400</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<h1>CALCULADORA FURIA</h1>
+      <button class="action" id="btnAttach">CALCULAR ATTACHS</button>
 
-</header>
+      <div class="results-grid">
+        <div class="result-box">
+          <span class="label">Quantidade de itens</span>
+          <strong id="itensAttach">0</strong>
+        </div>
 
+        <div class="result-box">
+          <span class="label">Valor final com parceria</span>
+          <strong id="valorParceria">R$ 0,00</strong>
+        </div>
 
-<section class="card">
+        <div class="result-box">
+          <span class="label">Valor final sem parceria</span>
+          <strong id="valorSemParceria">R$ 0,00</strong>
+        </div>
+      </div>
 
-<h2>ATTACHS</h2>
+      <div class="materials-box">
+        <h3>Materiais necessários para fabricação</h3>
 
-<table>
+        <div class="materials-grid">
+          <div class="material-item">
+            <span>Duct Tape</span>
+            <strong id="materialDuctTape">0</strong>
+          </div>
+          <div class="material-item">
+            <span>Tecido</span>
+            <strong id="materialTecido">0</strong>
+          </div>
+          <div class="material-item">
+            <span>Cobre</span>
+            <strong id="materialCobre">0</strong>
+          </div>
+          <div class="material-item">
+            <span>Plástico</span>
+            <strong id="materialPlastico">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<tr>
-<th>Item</th>
-<th>Qtd</th>
-</tr>
+    <!-- LAVAGEM -->
+    <section class="card">
+      <div class="card-title">
+        <h2>LAVAGEM DE ITENS DE CASA</h2>
+        <span class="badge">15% para a fac</span>
+      </div>
 
-<tr>
-<td>C4</td>
-<td><input type="number" id="c4" value="0"></td>
-</tr>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qtd</th>
+              <th>Valor unitário</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bracelete</td>
+              <td><input type="number" id="bracelete" min="0" value="0" /></td>
+              <td>R$ 600</td>
+            </tr>
+            <tr>
+              <td>Xbox</td>
+              <td><input type="number" id="xbox" min="0" value="0" /></td>
+              <td>R$ 600</td>
+            </tr>
+            <tr>
+              <td>Notbook</td>
+              <td><input type="number" id="notbook" min="0" value="0" /></td>
+              <td>R$ 500</td>
+            </tr>
+            <tr>
+              <td>Mouse</td>
+              <td><input type="number" id="mouse" min="0" value="0" /></td>
+              <td>R$ 200</td>
+            </tr>
+            <tr>
+              <td>Vibrador</td>
+              <td><input type="number" id="vibrador" min="0" value="0" /></td>
+              <td>R$ 200</td>
+            </tr>
+            <tr>
+              <td>Relógio</td>
+              <td><input type="number" id="relogio" min="0" value="0" /></td>
+              <td>R$ 500</td>
+            </tr>
+            <tr>
+              <td>Anel</td>
+              <td><input type="number" id="anel" min="0" value="0" /></td>
+              <td>R$ 1.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-<tr>
-<td>Lanterna</td>
-<td><input type="number" id="lanterna" value="0"></td>
-</tr>
+      <button class="action" id="btnLavagem">CALCULAR LAVAGEM</button>
 
-<tr>
-<td>Pente Estendido</td>
-<td><input type="number" id="pente" value="0"></td>
-</tr>
+      <div class="results-grid">
+        <div class="result-box">
+          <span class="label">Quantidade de itens</span>
+          <strong id="itensLavagem">0</strong>
+        </div>
 
-<tr>
-<td>Empunhadura</td>
-<td><input type="number" id="empunhadura" value="0"></td>
-</tr>
+        <div class="result-box">
+          <span class="label">Valor total</span>
+          <strong id="totalLavagem">R$ 0,00</strong>
+        </div>
 
-<tr>
-<td>Silenciador</td>
-<td><input type="number" id="silenciador" value="0"></td>
-</tr>
+        <div class="result-box">
+          <span class="label">Repassado para a pessoa (85%)</span>
+          <strong id="valorPessoa">R$ 0,00</strong>
+        </div>
 
-<tr>
-<td>Mira Olográfica</td>
-<td><input type="number" id="mira" value="0"></td>
-</tr>
+        <div class="result-box">
+          <span class="label">Fica com a fac (15%)</span>
+          <strong id="valorFac">R$ 0,00</strong>
+        </div>
+      </div>
+    </section>
+  </main>
 
-</table>
-
-<button onclick="calcularAttach()">CALCULAR</button>
-
-<div class="resultado">
-
-<p>Itens: <span id="itensAttach">0</span></p>
-<p>Com parceria: <span id="valorParceria">R$0</span></p>
-<p>Sem parceria: <span id="valorNormal">R$0</span></p>
-
-</div>
-
-</section>
-
-
-
-<section class="card">
-
-<h2>LAVAGEM DE ITENS</h2>
-
-<table>
-
-<tr><th>Item</th><th>Qtd</th></tr>
-
-<tr><td>Bracelete</td><td><input type="number" id="bracelete" value="0"></td></tr>
-<tr><td>Xbox</td><td><input type="number" id="xbox" value="0"></td></tr>
-<tr><td>Notebook</td><td><input type="number" id="notebook" value="0"></td></tr>
-<tr><td>Mouse</td><td><input type="number" id="mouse" value="0"></td></tr>
-<tr><td>Vibrador</td><td><input type="number" id="vibrador" value="0"></td></tr>
-<tr><td>Relógio</td><td><input type="number" id="relogio" value="0"></td></tr>
-<tr><td>Anel</td><td><input type="number" id="anel" value="0"></td></tr>
-
-</table>
-
-<button onclick="calcularLavagem()">CALCULAR</button>
-
-<div class="resultado">
-
-<p>Itens: <span id="itensLavagem">0</span></p>
-<p>Total: <span id="totalLavagem">R$0</span></p>
-<p>Para quem lavou (85%): <span id="valorPessoa">R$0</span></p>
-<p>Para facção (15%): <span id="valorFac">R$0</span></p>
-
-</div>
-
-</section>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
