@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora FURIA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="logo">
+<img src="logo.png">
+</div>
+
+<h1>Calculadora da Facção</h1>
+
+
+<div class="container">
+
+<h2>Attachments</h2>
+
+<table>
+
+<tr><th>Item</th><th>Qtd</th></tr>
+
+<tr>
+<td>C4</td>
+<td><input type="number" id="c4" value="0"></td>
+</tr>
+
+<tr>
+<td>Lanterna</td>
+<td><input type="number" id="lanterna" value="0"></td>
+</tr>
+
+<tr>
+<td>Pente Estendido</td>
+<td><input type="number" id="pente" value="0"></td>
+</tr>
+
+<tr>
+<td>Empunhadura</td>
+<td><input type="number" id="empunhadura" value="0"></td>
+</tr>
+
+<tr>
+<td>Silenciador</td>
+<td><input type="number" id="silenciador" value="0"></td>
+</tr>
+
+<tr>
+<td>Mira Olográfica</td>
+<td><input type="number" id="mira" value="0"></td>
+</tr>
+
+</table>
+
+<button onclick="calcularAttach()">Calcular</button>
+
+<div class="resultado">
+<p>Valor com parceria: <span id="valorParceria">0</span></p>
+<p>Valor sem parceria: <span id="valorNormal">0</span></p>
+</div>
+
+</div>
+
+
+
+<div class="container">
+
+<h2>Lavagem de Itens</h2>
+
+<table>
+
+<tr><th>Item</th><th>Qtd</th></tr>
+
+<tr><td>Bracelete</td><td><input type="number" id="bracelete" value="0"></td></tr>
+<tr><td>Xbox</td><td><input type="number" id="xbox" value="0"></td></tr>
+<tr><td>Notebook</td><td><input type="number" id="notebook" value="0"></td></tr>
+<tr><td>Mouse</td><td><input type="number" id="mouse" value="0"></td></tr>
+<tr><td>Vibrador</td><td><input type="number" id="vibrador" value="0"></td></tr>
+<tr><td>Relógio</td><td><input type="number" id="relogio" value="0"></td></tr>
+<tr><td>Anel</td><td><input type="number" id="anel" value="0"></td></tr>
+
+</table>
+
+<button onclick="calcularLavagem()">Calcular</button>
+
+<div class="resultado">
+
+<p>Total: <span id="totalLavagem">0</span></p>
+<p>Para quem lavou (85%): <span id="valorPessoa">0</span></p>
+<p>Para a facção (15%): <span id="valorFac">0</span></p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
