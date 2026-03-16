@@ -113,7 +113,7 @@ function recalcularTudo() {
   calcularLavagem();
 }
 
-/* ANIMAÇÃO DE ABERTURA */
+/* INTRO CINEMATOGRÁFICA */
 function iniciarIntro() {
   const texto = "ACESSO RESTRITO";
   const typedText = document.getElementById("typedText");
@@ -126,17 +126,17 @@ function iniciarIntro() {
     if (indice < texto.length) {
       typedText.textContent += texto.charAt(indice);
       indice += 1;
-      setTimeout(digitar, 95);
+      setTimeout(digitar, 105);
     } else {
       setTimeout(() => {
         intro.classList.add("hide");
         app.classList.remove("app-hidden");
         app.classList.add("app-visible");
-      }, 900);
+      }, 1300);
     }
   }
 
-  setTimeout(digitar, 500);
+  setTimeout(digitar, 700);
 }
 
 document.querySelectorAll('input[type="number"]').forEach((input) => {
