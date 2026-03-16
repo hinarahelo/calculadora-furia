@@ -15,19 +15,27 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- TELA DE ABERTURA -->
+  <!-- INTRO CINEMATOGRÁFICA -->
   <div id="intro" class="intro-screen">
-    <div class="intro-overlay"></div>
+    <div class="intro-bg"></div>
+    <div class="intro-vignette"></div>
+    <div class="intro-flash"></div>
+
     <div class="intro-content">
-      <img src="logo-furia.png" alt="Logo FURIA" class="intro-logo" />
-      <div class="intro-text-wrap">
+      <div class="intro-logo-shell">
+        <img src="logo-furia.png" alt="Logo FURIA" class="intro-logo" />
+      </div>
+
+      <div class="intro-text-block">
         <p id="typedText" class="intro-text"></p>
         <span class="intro-cursor"></span>
       </div>
+
+      <p class="intro-subline">Painel interno autorizado</p>
     </div>
   </div>
 
-  <!-- SITE -->
+  <!-- APP -->
   <div id="app" class="app-hidden">
     <div class="bg-layer"></div>
     <div class="lightning"></div>
