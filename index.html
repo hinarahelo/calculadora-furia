@@ -8,37 +8,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="bg-layer"></div>
   <div class="lightning"></div>
 
   <header class="hero">
     <div class="hero-inner">
-      <div class="hero-logo-wrap">
-        <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
+      <div class="hero-left">
+        <div class="logo-shell">
+          <img src="logo-furia.png" alt="Logo FURIA" class="logo" />
+        </div>
       </div>
 
-      <div class="hero-text">
+      <div class="hero-right">
         <span class="hero-tag">ACESSO RESTRITO</span>
         <h1>CALCULADORA FURIA</h1>
-        <p class="subtitle">Painel interno de produção, lavagem e materiais</p>
+        <p class="subtitle">Painel interno de produção, lavagem e controle de materiais</p>
 
-        <div class="hero-info">
-          <div class="hero-info-card">
-            <span class="hero-info-label">Status</span>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-label">Status</span>
             <strong>Operacional</strong>
           </div>
-          <div class="hero-info-card">
-            <span class="hero-info-label">Painel</span>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Ambiente</span>
             <strong>Uso Interno</strong>
           </div>
-          <div class="hero-info-card">
-            <span class="hero-info-label">Controle</span>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Controle</span>
             <strong>FURIA</strong>
           </div>
         </div>
@@ -47,9 +50,8 @@
   </header>
 
   <main class="page">
-    <!-- ATTACHS -->
     <section class="card">
-      <div class="card-title">
+      <div class="card-head">
         <div>
           <p class="section-mini">PRODUÇÃO</p>
           <h2>ATTACHS</h2>
@@ -110,8 +112,8 @@
 
       <button class="action" id="btnAttach">CALCULAR ATTACHS</button>
 
-      <div class="results-grid attach-results">
-        <div class="result-box emphasis">
+      <div class="results-grid results-3">
+        <div class="result-box result-highlight">
           <span class="label">Quantidade de itens</span>
           <strong id="itensAttach">0</strong>
         </div>
@@ -127,8 +129,8 @@
         </div>
       </div>
 
-      <div class="materials-box">
-        <div class="materials-head">
+      <div class="subpanel">
+        <div class="subpanel-head">
           <div>
             <p class="section-mini">FABRICAÇÃO</p>
             <h3>Materiais necessários</h3>
@@ -136,22 +138,22 @@
         </div>
 
         <div class="materials-grid">
-          <div class="material-item">
+          <div class="material-card">
             <span>Duct Tape</span>
             <strong id="materialDuctTape">0</strong>
           </div>
 
-          <div class="material-item">
+          <div class="material-card">
             <span>Plástico</span>
             <strong id="materialPlastico">0</strong>
           </div>
 
-          <div class="material-item">
+          <div class="material-card">
             <span>Tecido</span>
             <strong id="materialTecido">0</strong>
           </div>
 
-          <div class="material-item">
+          <div class="material-card">
             <span>Cobre</span>
             <strong id="materialCobre">0</strong>
           </div>
@@ -159,9 +161,8 @@
       </div>
     </section>
 
-    <!-- LAVAGEM -->
     <section class="card">
-      <div class="card-title">
+      <div class="card-head">
         <div>
           <p class="section-mini">FINANCEIRO</p>
           <h2>LAVAGEM DE ITENS DE CASA</h2>
@@ -220,8 +221,8 @@
 
       <button class="action" id="btnLavagem">CALCULAR LAVAGEM</button>
 
-      <div class="results-grid lavagem-results">
-        <div class="result-box emphasis">
+      <div class="results-grid results-4">
+        <div class="result-box result-highlight">
           <span class="label">Quantidade de itens</span>
           <strong id="itensLavagem">0</strong>
         </div>
