@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Calculadora FURIA</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="logo">
-<img src="logo.png">
-</div>
+<div class="lightning"></div>
 
-<h1>Calculadora da Facção</h1>
+<header>
+
+<img src="logo.png" class="logo">
+
+<h1>CALCULADORA FURIA</h1>
+
+</header>
 
 
-<div class="container">
+<section class="card">
 
-<h2>Attachments</h2>
+<h2>ATTACHS</h2>
 
 <table>
 
-<tr><th>Item</th><th>Qtd</th></tr>
+<tr>
+<th>Item</th>
+<th>Qtd</th>
+</tr>
 
 <tr>
 <td>C4</td>
@@ -55,20 +67,23 @@
 
 </table>
 
-<button onclick="calcularAttach()">Calcular</button>
+<button onclick="calcularAttach()">CALCULAR</button>
 
 <div class="resultado">
-<p>Valor com parceria: <span id="valorParceria">0</span></p>
-<p>Valor sem parceria: <span id="valorNormal">0</span></p>
-</div>
+
+<p>Itens: <span id="itensAttach">0</span></p>
+<p>Com parceria: <span id="valorParceria">R$0</span></p>
+<p>Sem parceria: <span id="valorNormal">R$0</span></p>
 
 </div>
 
+</section>
 
 
-<div class="container">
 
-<h2>Lavagem de Itens</h2>
+<section class="card">
+
+<h2>LAVAGEM DE ITENS</h2>
 
 <table>
 
@@ -84,17 +99,18 @@
 
 </table>
 
-<button onclick="calcularLavagem()">Calcular</button>
+<button onclick="calcularLavagem()">CALCULAR</button>
 
 <div class="resultado">
 
-<p>Total: <span id="totalLavagem">0</span></p>
-<p>Para quem lavou (85%): <span id="valorPessoa">0</span></p>
-<p>Para a facção (15%): <span id="valorFac">0</span></p>
+<p>Itens: <span id="itensLavagem">0</span></p>
+<p>Total: <span id="totalLavagem">R$0</span></p>
+<p>Para quem lavou (85%): <span id="valorPessoa">R$0</span></p>
+<p>Para facção (15%): <span id="valorFac">R$0</span></p>
 
 </div>
 
-</div>
+</section>
 
 <script src="script.js"></script>
 
