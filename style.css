@@ -2,7 +2,6 @@
   --bg-1: #020202;
   --bg-2: #080808;
   --panel: rgba(12, 12, 12, 0.88);
-  --panel-soft: rgba(255, 255, 255, 0.03);
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
   --text: #ffffff;
@@ -11,9 +10,6 @@
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
   --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.35);
   --radius-xl: 30px;
-  --radius-lg: 22px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
 }
 
 * {
@@ -32,19 +28,19 @@ body {
   position: relative;
 }
 
-/* INTRO */
+/* INTRO CINEMATOGRÁFICA */
 .intro-screen {
   position: fixed;
   inset: 0;
   z-index: 9999;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 24%),
-    linear-gradient(180deg, #000000 0%, #050505 100%);
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.02), transparent 28%),
+    linear-gradient(180deg, #000000 0%, #040404 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
 }
 
 .intro-screen.hide {
@@ -52,17 +48,31 @@ body {
   visibility: hidden;
 }
 
-.intro-overlay {
+.intro-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.035), transparent 20%),
-    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.03), transparent 18%),
-    linear-gradient(120deg, transparent 42%, rgba(255, 255, 255, 0.14) 50%, transparent 58%),
-    linear-gradient(70deg, transparent 42%, rgba(255, 255, 255, 0.08) 50%, transparent 58%);
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.05), transparent 18%),
+    radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.04), transparent 16%),
+    linear-gradient(120deg, transparent 42%, rgba(255, 255, 255, 0.12) 50%, transparent 58%),
+    linear-gradient(70deg, transparent 42%, rgba(255, 255, 255, 0.07) 50%, transparent 58%);
   background-size: auto, auto, 240% 240%, 240% 240%;
-  animation: introLightning 6s linear infinite;
-  opacity: 0.45;
+  animation: introLightning 7s linear infinite;
+  opacity: 0.55;
+}
+
+.intro-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 35%, rgba(0, 0, 0, 0.68) 100%);
+}
+
+.intro-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.11), transparent 38%);
+  animation: introFlashPulse 2.6s ease-in-out infinite;
+  mix-blend-mode: screen;
 }
 
 @keyframes introLightning {
@@ -77,6 +87,15 @@ body {
   }
 }
 
+@keyframes introFlashPulse {
+  0%, 100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
 .intro-content {
   position: relative;
   z-index: 2;
@@ -84,42 +103,80 @@ body {
   padding: 24px;
 }
 
+.intro-logo-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 18px 60px rgba(0,0,0,0.55);
+  animation: shellBreath 2.8s ease-in-out infinite;
+}
+
+@keyframes shellBreath {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.03),
+      0 18px 60px rgba(0,0,0,0.55);
+  }
+  50% {
+    transform: scale(1.01);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 20px 70px rgba(0,0,0,0.62);
+  }
+}
+
 .intro-logo {
-  width: min(320px, 72vw);
+  width: min(330px, 74vw);
   display: block;
-  margin: 0 auto 24px;
   filter:
-    drop-shadow(0 0 10px rgba(255,255,255,0.55))
-    drop-shadow(0 0 22px rgba(255,255,255,0.18));
-  animation: introLogoPulse 2.2s ease-in-out infinite;
+    drop-shadow(0 0 12px rgba(255,255,255,0.62))
+    drop-shadow(0 0 28px rgba(255,255,255,0.16));
+  animation: introLogoPulse 2.4s ease-in-out infinite;
 }
 
 @keyframes introLogoPulse {
   0%, 100% {
     transform: scale(1);
-    opacity: 0.95;
+    opacity: 0.96;
+    filter:
+      drop-shadow(0 0 12px rgba(255,255,255,0.52))
+      drop-shadow(0 0 28px rgba(255,255,255,0.14));
   }
   50% {
-    transform: scale(1.025);
+    transform: scale(1.035);
     opacity: 1;
+    filter:
+      drop-shadow(0 0 18px rgba(255,255,255,0.72))
+      drop-shadow(0 0 40px rgba(255,255,255,0.22));
   }
 }
 
-.intro-text-wrap {
-  min-height: 36px;
+.intro-text-block {
+  margin-top: 26px;
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .intro-text {
   margin: 0;
-  font-size: clamp(1rem, 2.3vw, 1.35rem);
-  font-weight: 800;
-  letter-spacing: 0.35em;
+  font-size: clamp(1rem, 2.5vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
   color: #ffffff;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.25),
+    0 0 24px rgba(255,255,255,0.08);
 }
 
 .intro-cursor {
@@ -128,6 +185,7 @@ body {
   border-radius: 2px;
   background: #ffffff;
   display: inline-block;
+  box-shadow: 0 0 10px rgba(255,255,255,0.35);
   animation: blinkCursor 0.8s steps(1) infinite;
 }
 
@@ -137,10 +195,29 @@ body {
   }
 }
 
+.intro-subline {
+  margin: 16px 0 0;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: sublineFade 2s ease-in-out infinite;
+}
+
+@keyframes sublineFade {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
 .app-hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
 }
 
 .app-visible {
@@ -148,7 +225,7 @@ body {
   visibility: visible;
 }
 
-/* SITE */
+/* BACKGROUND APP */
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -194,6 +271,7 @@ body {
   }
 }
 
+/* HERO */
 .hero {
   position: relative;
   z-index: 1;
@@ -313,6 +391,7 @@ h1 {
   font-weight: 700;
 }
 
+/* PAGE */
 .page {
   position: relative;
   z-index: 1;
@@ -641,7 +720,7 @@ h1 {
   }
 
   .intro-text {
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
   }
 }
 
@@ -688,6 +767,11 @@ h1 {
 
   .intro-text {
     font-size: 0.95rem;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
+  }
+
+  .intro-subline {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 }
